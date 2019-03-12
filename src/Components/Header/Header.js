@@ -4,6 +4,8 @@ import logo from '../../media/logo.png';
 import following from '../../media/following_icon.png';
 import notifications from '../../media/bell_icon.png';
 import profile from '../../media/profile_icon.png';
+import messages from '../../media/message_icon.ico';
+import search from '../../media/search_icon.png';
 import './Header.css';
 
 class Header extends Component {
@@ -33,6 +35,18 @@ class Header extends Component {
                     <li>notifications</li>
                     <li>my boards</li>
                 </ul> */}
+                <Navbar variant='light' className="mobile_top_nav">
+                    <div id='searchbox'>
+                        <img src={ search } id="search_icon"/>
+                        <p>Search</p>
+                    </div>
+                    
+                    <Navbar.Brand href='messages' className="message_icon">
+                        <div id='message_container'>
+                            <img src={ messages } />
+                        </div>
+                    </Navbar.Brand>
+                </Navbar>
                 <Navbar variant="light" className="mobile_bottom_nav">
                     <Navbar.Brand href="#home" id="icon">
                         <div id='container'>

@@ -1,11 +1,63 @@
 /* ul {
     list-style-type: none;
 } */
+.mobile_top_nav{
+    height: 62px;
+    width: 100%;
+    /* border: 1px solid black; */
+    position: relative;
+}
+#searchbox{
+    width: 90%;
+    height: 40px;
+    /* border: 1px pink solid; */
+    border-radius: 9px;
+    background: #efefef;
+    display: flex;
+    position: relative;
+    flex: auto;
+}
+
+#search_icon{
+    height: 25px;
+    position: absolute;
+    top: 7px;
+    left: 5px;
+}
+
+#searchbox p{
+    position: absolute;
+    left: 35px;
+    top: 12px;
+    color: #8e8e8e;
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#message_container{
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    right: 30px;
+    top: 18px;
+}
+
+.message_icon{
+    width: 24px;
+    height: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.message_icon img{
+    height: 28px;
+    width: 28px;
+}
 
 .mobile_bottom_nav{
     height: 54px;
     width: 100%;
-    /* border: 1px black dotted; */
     position: absolute;
     bottom: 0;
     padding: 0px 5px 10px 21px;
@@ -14,7 +66,6 @@
 #container{
     height: 48px;
     width: 80px;
-    /* border: 1px blue dotted; */
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -23,7 +74,6 @@
 #icon{
     width: 25%;
     height: 100%;
-    /* border: 1px green dotted; */
     display: flex;
     flex-wrap: wrap;
 }
@@ -37,5 +87,4 @@
 #icon img{
     height: 27px;
     width: 27px;
-    /* border: 1px pink dotted; */
 }
