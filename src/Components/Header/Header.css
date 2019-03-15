@@ -5,7 +5,9 @@
     height: 62px;
     width: 100%;
     /* border: 1px solid black; */
-    position: relative;
+    position: absolute;
+    /* top: 0; */
+    background: rgba(255, 255, 255, 0.95);
 }
 #searchbox{
     width: 90%;
