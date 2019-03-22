@@ -3,6 +3,7 @@ import axios from 'axios';
 import {client_id , client_secret} from '../../config.js';
 import './Login.css';
 import logo from '../../media/logo.png';
+import appStore from '../../media/app_store.png';
 
 class Login extends Component {
     constructor(props){
@@ -76,12 +77,12 @@ class Login extends Component {
 
               <div id='login-footer1'>
                 <p>By continuing, you agree to Pinterest's Terms of Service and Privacy Policy</p>
-                <img src=''/>
+                <img src={ appStore } id="app-store-logo"/>
               </div>
 
               <div id='login-pageline'></div>
 
-              <p>Create a business account</p>
+              <p id="login-business-acct">Create a business account</p>
 
                 {/* < Pin token={this.state.access_token}/ > */}
             </div>

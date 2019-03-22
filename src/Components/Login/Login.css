@@ -35,7 +35,7 @@
     border: 1px solid #e60023;
     background: #e60023;
     height: 45px;
-    width: 90vw;
+    width: 95vw;
     border-radius: 15px;
     color: white;
     font-weight: 700;
@@ -48,7 +48,7 @@
 
 #redirect-home-btn{
     height: 45px;
-    width: 90vw;
+    width: 95vw;
     border: 1px solid #efefef;
     background: #efefef;
     /* color: white; */
@@ -58,4 +58,41 @@
     margin-left: auto;
     margin-right: auto;
     display: block;
+}
+
+#login-footer1{
+    width: 85%;
+    height: auto;
+    /* border: 1px dotted black; */
+    margin-top: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    line-height: 14px;
+}
+
+#login-footer1 p{
+    color: #8e8e8e;
+    font-size: 12px;
+}
+
+#app-store-logo{
+    height: 45px;
+    margin: 10px auto 0 auto;
+    display: block;
+}
+
+#login-pageline{
+    height: 1px;
+    background: #efefef;
+    width: 92vw;
+    margin: 20px auto 0 auto;
+    display: block;
+}
+
+#login-business-acct{
+    font-size: 14px;
+    font-weight: 700;
+    margin: 20px auto 0 auto;
 }
