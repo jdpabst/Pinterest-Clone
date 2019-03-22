@@ -12,6 +12,9 @@ class Login extends Component {
               top_nav: 0,
               bottom_nav: 0,
               access_token: '',
+              bttn_color: 'rgba(119, 119, 119, 0.5)',
+              bttn_font_color: 'gray',
+              bttn_border: '1px solid rgba(119, 119, 119, 0)'
           }
     
           this.handleScroll = this.handleScroll.bind(this);
@@ -48,11 +51,16 @@ class Login extends Component {
         };
         if(params.code){
           axios.post(`https://api.pinterest.com/v1/oauth/token?grant_type=authorization_code&client_id=${client_id}&client_secret=${client_secret}&code=${params.code}`).then(res => {
+
             console.log(res.data.access_token)
+
             sessionStorage.token=res.data.access_token;
-            // this.setState({
-            //   access_token: res.data.access_token
-            // })+
+
+            this.setState({
+              bttn_color: '#efefef',
+              bttn_font_color: 'black',
+              bttn_border: '1px solid #efefef'
+            })
 
             // redirect to PINS page
           })
@@ -73,7 +81,7 @@ class Login extends Component {
 
               <button id='authenticate-button' onClick={this.handleLogin}>Authenticate with Pinterest</button>
 
-              <button id='redirect-home-btn'>Checkout Pins</button>
+              <button id='redirect-home-btn' style={ { color: `${this.state.bttn_font_color}`, background: `${this.state.bttn_color }`, border: `${this.state.bttn_border }` } }>Checkout Pins</button>
 
               <div id='login-footer1'>
                 <p>By continuing, you agree to Pinterest's Terms of Service and Privacy Policy</p>
