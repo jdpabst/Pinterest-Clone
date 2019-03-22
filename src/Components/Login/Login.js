@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import {client_id , client_secret} from '../../config.js';
 import './Login.css';
 import logo from '../../media/logo.png';
@@ -14,7 +15,8 @@ class Login extends Component {
               access_token: '',
               bttn_color: 'rgba(119, 119, 119, 0.5)',
               bttn_font_color: 'gray',
-              bttn_border: '1px solid rgba(119, 119, 119, 0)'
+              bttn_border: '1px solid rgba(119, 119, 119, 0)',
+              clickable: 'not-allowed',
           }
     
           this.handleScroll = this.handleScroll.bind(this);
@@ -59,7 +61,8 @@ class Login extends Component {
             this.setState({
               bttn_color: '#efefef',
               bttn_font_color: 'black',
-              bttn_border: '1px solid #efefef'
+              bttn_border: '1px solid #efefef',
+              clickable: 'pointer'
             })
 
             // redirect to PINS page
@@ -81,7 +84,9 @@ class Login extends Component {
 
               <button id='authenticate-button' onClick={this.handleLogin}>Authenticate with Pinterest</button>
 
-              <button id='redirect-home-btn' style={ { color: `${this.state.bttn_font_color}`, background: `${this.state.bttn_color }`, border: `${this.state.bttn_border }` } }>Checkout Pins</button>
+              <Link to='/home'>
+                <button id='redirect-home-btn' style={ { color: `${this.state.bttn_font_color}`, background: `${this.state.bttn_color }`, border: `${this.state.bttn_border }`, cursor: `${this.state.clickable}` } }>Checkout Pins</button>
+              </Link>
 
               <div id='login-footer1'>
                 <p>By continuing, you agree to Pinterest's Terms of Service and Privacy Policy</p>

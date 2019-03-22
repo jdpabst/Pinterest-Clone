@@ -6,8 +6,8 @@ import Pins from './Components/Pins/Pins';
 
 export default (
     <Switch>
-        <Route path ='/' render={() => <Login />} />
-        <Route path ='/home' render={() => <Pins />} />
+        <Route path='/' render={() => <Login />} />
+        <Route path='/home' render={() => <Pins />} />
 
     </Switch>
 )
