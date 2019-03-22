@@ -30,7 +30,6 @@ class Header extends Component {
 
                 </Navbar>
 
-
                 <Navbar variant="light" className="mobile_bottom_nav" style={ {bottom: '0px'} }>
 
                     <Navbar.Brand href="#home" id="icon">

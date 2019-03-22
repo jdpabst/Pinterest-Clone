@@ -1,0 +1,11 @@
+#pin-container{
+    background: pink;
+    height: 100%;
+    width: auto;
+}
+
+#test-pin{
+    background: lightblue;
+    height: 100vh;
+    width: 250px;
+}
