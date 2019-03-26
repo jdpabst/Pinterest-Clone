@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import {client_id , client_secret} from '../../config.js';
 import './Login.css';
 import logo from '../../media/logo.png';
@@ -16,11 +16,12 @@ class Login extends Component {
               bttn_color: 'rgba(119, 119, 119, 0.5)',
               bttn_font_color: 'gray',
               bttn_border: '1px solid rgba(119, 119, 119, 0)',
-              clickable: 'not-allowed',
+              clickable: 'not-allowed'
           }
     
           this.handleScroll = this.handleScroll.bind(this);
           this.handleLogin = this.handleLogin.bind(this);
+          this.handleRedirect = this.handleRedirect.bind(this);
       }
     
       handleScroll(e){
@@ -29,15 +30,17 @@ class Login extends Component {
       }
     
       handleLogin(){
-        // MOVE THIS TO LOGIN PAGE WHEN READY
         let redirectURL = "https://api.pinterest.com/oauth/?response_type=code&redirect_uri=https://localhost:3000&client_id=" +
              client_id + "&scope=read_public,write_public&state=768uyFys"
     
         window.location.href= redirectURL;
-        //
+
     }
 
     componentDidMount(){
+      if(sessionStorage.token){
+        window.location.href = window.location.origin + '/#/home'
+      }
         let params = getParams(window.location.href);
         function getParams (url) {
           var params = {};
@@ -56,6 +59,7 @@ class Login extends Component {
 
             console.log(res.data.access_token)
 
+            // can use localStorage to save the token so you only have to log in once, not every new session //
             sessionStorage.token=res.data.access_token;
 
             this.setState({
@@ -66,8 +70,13 @@ class Login extends Component {
             })
 
             // redirect to PINS page
+            
           })
         }
+      }
+
+      handleRedirect(){
+        window.location.href = window.location.origin + '/#/home'
       }
 
     render() {
@@ -84,9 +93,8 @@ class Login extends Component {
 
               <button id='authenticate-button' onClick={this.handleLogin}>Authenticate with Pinterest</button>
 
-              <Link to='/home'>
-                <button id='redirect-home-btn' style={ { color: `${this.state.bttn_font_color}`, background: `${this.state.bttn_color }`, border: `${this.state.bttn_border }`, cursor: `${this.state.clickable}` } }>Checkout Pins</button>
-              </Link>
+              
+              <button id='redirect-home-btn' style={ { color: `${this.state.bttn_font_color}`, background: `${this.state.bttn_color }`, border: `${this.state.bttn_border }`, cursor: `${this.state.clickable}` } } onClick={this.handleRedirect}>Checkout Pins</button>
 
               <div id='login-footer1'>
                 <p>By continuing, you agree to Pinterest's Terms of Service and Privacy Policy</p>
@@ -97,7 +105,6 @@ class Login extends Component {
 
               <p id="login-business-acct">Create a business account</p>
 
-                {/* < Pin token={this.state.access_token}/ > */}
             </div>
         )
     }

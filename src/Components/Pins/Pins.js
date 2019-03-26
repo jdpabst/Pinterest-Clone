@@ -8,7 +8,7 @@ class Pins extends Component {
 
     componentDidMount(){
         
-        axios.get('https://api.pinterest.com/v1/me/pins?access_token=' + this.props.token).then((res) => {
+        axios.get('https://api.pinterest.com/v1/me/pins?access_token=' + sessionStorage.token).then((res) => {
 
             console.log(res.data)
 
